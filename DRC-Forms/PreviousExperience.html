@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Title</title>
+
+  <!-- Bootswatch Pulse theme (includes Bootstrap CSS) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/pulse/bootstrap.min.css"
+    integrity="sha384-<…hash…>"
+    crossorigin="anonymous"
+  />
+
+  <!-- Your custom overrides -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DRC Forms</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link active" href="ApprenticeshipAgreement.html">Apprenticeship Agreement Form
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link active" href="Conditions.html">Apprenticeship Conditions Form
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link active" href="PreviousExperience.html">Apprenticeship Previous Experience Form
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+ <div style="margin-left:10px;margin-right:10px">
+    <div style="text-align:center;">
+        <p style="font-size: small; margin: 0px;">Ohio Department of Job and Family Services</p>
+        <p style="margin: 0px;">Ohio State Apprenticeship Council (OSAC)</p>
+        <b>VOUCHER OF CREDIT <br>FOR APPRENTICE'S PREVIOUS EXPERIENCE</b>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6"> 
+      <div class="form-group">
+        <label>Sponsor Organization </label>
+        <div style="color: #000;font-size: large;">
+          <label>Ohio Multi-Crafts</label>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-6"> 
+      <div class="form-group">
+        <label>Program ID</label>
+        <div style="color: #000;font-size: large;">
+          <label>OH007800007</label>
+        </div>
+      </div>   
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6"> 
+      <div class="form-group">
+        <label>Apprentice’s Name </label>
+        <input type="text" class="form-control" id="nameInput">
+      </div>
+    </div>
+    <div class="col-6"> 
+      <div class="form-group">
+        <label>Occupation </label>
+        
+       <div>
+        <select class="form-select" id="courses" name="courses">
+          <option selected disabled>Choose a course...</option>
+          <option value="electrical-installation">Electrical Installation</option>
+          <option value="plumbing-heating">Plumbing and Heating</option>
+          <option value="carpentry-joinery">Carpentry and Joinery</option>
+          <option value="bricklaying">Bricklaying</option>
+          <option value="painting-decorating">Painting and Decorating</option>
+          <option value="welding-fabrication">Welding and Fabrication</option>
+          <option value="roofing">Roofing</option>
+          <option value="hvac-technician">HVAC Technician</option>
+          <option value="drylining">Drylining</option>
+          <option value="floor-laying">Floor Laying</option>
+          <option value="mechanical-engineering-technician">Mechanical Engineering Technician</option>
+          <option value="cnc-machining">CNC Machining</option>
+          <option value="maintenance-engineering">Maintenance Engineering</option>
+          <option value="aerospace-engineering">Aerospace Engineering</option>
+          <option value="toolmaking">Toolmaking</option>
+          <option value="mechatronics-maintenance">Mechatronics Maintenance</option>
+          <option value="engineering-design-draughtsperson">Engineering Design and Draughtsperson</option>
+          <option value="sheet-metal-work">Sheet Metal Work</option>
+          <option value="composite-technician">Composite Technician</option>
+          <option value="automotive-engineering">Automotive Engineering</option>
+          <option value="software-developer">Software Developer</option>
+          <option value="cyber-security-technician">Cyber Security Technician</option>
+          <option value="digital-marketing">Digital Marketing</option>
+          <option value="it-support-technician">IT Support Technician</option>
+          <option value="data-analyst">Data Analyst</option>
+          <option value="network-engineer">Network Engineer</option>
+          <option value="business-analyst">Business Analyst</option>
+          <option value="devops-engineer">DevOps Engineer</option>
+          <option value="web-development">Web Development</option>
+          <option value="cloud-practitioner">Cloud Practitioner</option>
+          <option value="business-administration">Business Administration</option>
+          <option value="human-resources-support">Human Resources Support</option>
+          <option value="customer-service-practitioner">Customer Service Practitioner</option>
+          <option value="accounting-technician">Accounting Technician</option>
+          <option value="project-management">Project Management</option>
+          <option value="supply-chain-practitioner">Supply Chain Practitioner</option>
+          <option value="paralegal">Paralegal</option>
+          <option value="team-leader-supervisor">Team Leader/Supervisor</option>
+          <option value="recruitment-consultant">Recruitment Consultant</option>
+          <option value="insurance-practitioner">Insurance Practitioner</option>
+          <option value="dental-nurse">Dental Nurse</option>
+          <option value="healthcare-support-worker">Healthcare Support Worker</option>
+          <option value="pharmacy-technician">Pharmacy Technician</option>
+          <option value="early-years-educator">Early Years Educator</option>
+          <option value="adult-care-worker">Adult Care Worker</option>
+          <option value="nursing-associate">Nursing Associate</option>
+          <option value="optical-assistant">Optical Assistant</option>
+          <option value="physiotherapy-assistant">Physiotherapy Assistant</option>
+          <option value="occupational-therapy-assistant">Occupational Therapy Assistant</option>
+          <option value="laboratory-technician">Laboratory Technician</option>
+        </select>
+       </div>
+      
+
+
+      </div>
+    </div>
+  </div>
+
+  <b><u>ON-THE-JOB TRAINING (O.J.T.) CREDIT</u></b>
+    <p>
+        Credit for previous work or job skill must not equal more than 75% of the normal term of OJT, and the remaining amount of OJT in the program must be no less than 2,000 hours.
+        Any amount of OJT credit will require submittal of a completed voucher and is subject to the approval of the OSAC administrator.
+    </p>
+
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <b><u>Employment:</u></b> For each job where the apprentice obtained qualifying work experience, 
+      <b>please list the employer</b> and the amount of OJT credit earned.
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+    <u><b>Credit Hours</b></u>
+    </div>
+  </div>
+
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <input type="text" class="form-control" id="EmpInput1">
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="OJT1">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <input type="text" class="form-control" id="EmpInput2">
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="OJT2">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <input type="text" class="form-control" id="EmpInput3">
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="OJT3">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <input type="text" class="form-control" id="EmpInput4">
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="OJT4">
+    </div>
+  </div>
+
+
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <b><u>Remaining OJT:</u></b>  Please calculate the following.
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+    <u><b>Total Hours</b></u>
+    </div>
+  </div>
+
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <label>Hours of the normal OJT term</label>
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="TotalOJTHours1">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <label>Total OJT hours credited (above) to this apprentice</label>
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="TotalOJTHours2">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <label>Normal OJT term hours minus credit </label>
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="TotalOJTHours3">
+    </div>
+  </div>
+
+
+    <b><u>RELATED TECHNICAL INSTRUCTION (R.T.I.) CREDIT</u></b>
+    <p> Credit for previous technical instruction may equal up to 100% of the program's RTI requirement. Any amount of RTI credit will require submittal of a completed voucher, and is subject to the approval of the OSAC administrator.
+       <b><i></i>Attached to the voucher there must be documentation</b>  (e.g., a transcript) of the course work on which credit is based.
+    </p>
+
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+       <b><u>Instruction:</u></b><b>Please list each institution</b> that provided the apprentice with qualifying instruction, 
+       as well as the amount of credit earned through that institution.
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+    <u><b>Credit Hours</b></u>
+    </div>
+  </div>
+
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <input type="text" class="form-control" id="InstInput1">
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="RTI1">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <input type="text" class="form-control" id="InstInput2">
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="RTI2">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <input type="text" class="form-control" id="InstInput3">
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="RTI3">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <input type="text" class="form-control" id="InstInput4">
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="RTI4">
+    </div>
+  </div>
+
+
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <b><u>Remaining RTI:</u></b>  Please calculate the following.
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+    <u><b>Total Hours</b></u>
+    </div>
+  </div>
+
+    <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <label>Hours of the normal RTI term</label>
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="TotalRTIHours1">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <label>Total RTI hours credited (above) to this apprentice</label>
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="TotalRTIHours2">
+    </div>
+  </div>
+
+  <div class="row" style="background-color: rgba(255, 255, 255, 0.55); color: #000;">
+    <div class="col-10" style="border: 1px solid #000;">
+      <label>Normal RTI term hours minus credit </label>
+    </div>
+    <div class="col-2" style="border: 1px solid #000;">
+      <input type="number" class="form-control" id="TotalRTIHours3">
+    </div>
+  </div>
+
+  <b><u>SIGNATURES</u></b>
+
+  <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="enableSignature" style="width: 20px; height: 20px; cursor: pointer;">
+            <label for="enableSignature" style="font-size: 16px; color: #555; cursor: pointer; user-select: none;">Add Sponsor Representative’s Signature </label>
+        </div>
+       
+        <div style="text-align: center; color: #888; font-size: 14px; margin-bottom: 10px;">Sign below when enabled</div>
+        <canvas id="signatureCanvas" width="540" height="200" style="border: 2px solid #ddd; border-radius: 8px; display: block; margin: 0 auto 20px; cursor: crosshair; background-color: #fafafa; touch-action: none; pointer-events: none; opacity: 0.5;"></canvas>
+       
+        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+            <button id="captureBtn" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #761b7e; color: white; opacity: 0.5; cursor: not-allowed;">Capture</button>
+            <button id="clearBtn" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #722679; color: white; opacity: 0.5; cursor: not-allowed;">Clear</button>
+        </div>
+       
+  <div id="dateDisplay" style="text-align: center; font-size: 18px; color: #333; font-weight: 500; min-height: 30px; margin-top: 10px;"></div>
+
+
+
+
+<div class="d-flex justify-content-center mt-3 gap-2">
+  <button type="button" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-info" onclick="printExternalPage()">Print</button>
+</div>
+
+  <!-- Bootstrap JS bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js">
+    
+  </script>
+  <script>
+        const canvas = document.getElementById('signatureCanvas');
+        const ctx = canvas.getContext('2d');
+        const enableCheckbox = document.getElementById('enableSignature');
+        const captureBtn = document.getElementById('captureBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const dateDisplay = document.getElementById('dateDisplay');
+       
+        let isDrawing = false;
+        let hasSignature = false;
+       
+        // Set canvas background
+        ctx.fillStyle = '#fafafa';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+       
+        // Enable/disable signature functionality
+        enableCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                canvas.style.pointerEvents = 'auto';
+                canvas.style.opacity = '1';
+                canvas.style.backgroundColor = '#fff';
+                captureBtn.disabled = false;
+                clearBtn.disabled = false;
+                captureBtn.style.opacity = '1';
+                captureBtn.style.cursor = 'pointer';
+                clearBtn.style.opacity = '1';
+                clearBtn.style.cursor = 'pointer';
+            } else {
+                canvas.style.pointerEvents = 'none';
+                canvas.style.opacity = '0.5';
+                canvas.style.backgroundColor = '#f0f0f0';
+                captureBtn.disabled = true;
+                clearBtn.disabled = true;
+                captureBtn.style.opacity = '0.5';
+                captureBtn.style.cursor = 'not-allowed';
+                clearBtn.style.opacity = '0.5';
+                clearBtn.style.cursor = 'not-allowed';
+                clearCanvas();
+            }
+        });
+       
+        // Mouse events
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+       
+        // Touch events
+        canvas.addEventListener('touchstart', handleTouch);
+        canvas.addEventListener('touchmove', handleTouch);
+        canvas.addEventListener('touchend', stopDrawing);
+      
+ 
+       
+        function startDrawing(e) {
+            if (!enableCheckbox.checked) return;
+            isDrawing = true;
+            hasSignature = true;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+       
+        function draw(e) {
+            if (!isDrawing || !enableCheckbox.checked) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+           
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#000';
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+       
+        function stopDrawing() {
+            isDrawing = false;
+        }
+       
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' :
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+       
+        // Capture button functionality
+        captureBtn.addEventListener('click', function() {
+            if (!hasSignature) {
+                alert('Please add a signature first!');
+                return;
+            }
+            const today = new Date();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const formattedDate = `${mm}/${dd}/${yyyy}`;
+            dateDisplay.textContent = `Captured on: ${formattedDate}`;
+        });
+       
+        // Clear button functionality
+        clearBtn.addEventListener('click', clearCanvas);
+       
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#fafafa';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            dateDisplay.textContent = '';
+            hasSignature = false;
+        }
+    </script>
+</body>
+</html>

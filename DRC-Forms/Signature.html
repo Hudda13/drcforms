@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Pad</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; background-color: #f5f5f5;">
+    <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: #333; margin-bottom: 30px; text-align: center;">Digital Signature Pad</h1>
+       
+        <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="enableSignature" style="width: 20px; height: 20px; cursor: pointer;">
+            <label for="enableSignature" style="font-size: 16px; color: #555; cursor: pointer; user-select: none;">Add Signature</label>
+        </div>
+       
+        <div style="text-align: center; color: #888; font-size: 14px; margin-bottom: 10px;">Sign below when enabled</div>
+        <canvas id="signatureCanvas" width="540" height="200" style="border: 2px solid #ddd; border-radius: 8px; display: block; margin: 0 auto 20px; cursor: crosshair; background-color: #fafafa; touch-action: none; pointer-events: none; opacity: 0.5;"></canvas>
+       
+        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+            <button id="captureBtn" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #4CAF50; color: white; opacity: 0.5; cursor: not-allowed;">Capture</button>
+            <button id="clearBtn" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #f44336; color: white; opacity: 0.5; cursor: not-allowed;">Clear</button>
+        </div>
+       
+        <div id="dateDisplay" style="text-align: center; font-size: 18px; color: #333; font-weight: 500; min-height: 30px; margin-top: 10px;"></div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('signatureCanvas');
+        const ctx = canvas.getContext('2d');
+        const enableCheckbox = document.getElementById('enableSignature');
+        const captureBtn = document.getElementById('captureBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const dateDisplay = document.getElementById('dateDisplay');
+       
+        let isDrawing = false;
+        let hasSignature = false;
+       
+        // Set canvas background
+        ctx.fillStyle = '#fafafa';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+       
+        // Enable/disable signature functionality
+        enableCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                canvas.style.pointerEvents = 'auto';
+                canvas.style.opacity = '1';
+                canvas.style.backgroundColor = '#fff';
+                captureBtn.disabled = false;
+                clearBtn.disabled = false;
+                captureBtn.style.opacity = '1';
+                captureBtn.style.cursor = 'pointer';
+                clearBtn.style.opacity = '1';
+                clearBtn.style.cursor = 'pointer';
+            } else {
+                canvas.style.pointerEvents = 'none';
+                canvas.style.opacity = '0.5';
+                canvas.style.backgroundColor = '#f0f0f0';
+                captureBtn.disabled = true;
+                clearBtn.disabled = true;
+                captureBtn.style.opacity = '0.5';
+                captureBtn.style.cursor = 'not-allowed';
+                clearBtn.style.opacity = '0.5';
+                clearBtn.style.cursor = 'not-allowed';
+                clearCanvas();
+            }
+        });
+       
+        // Mouse events
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+       
+        // Touch events
+        canvas.addEventListener('touchstart', handleTouch);
+        canvas.addEventListener('touchmove', handleTouch);
+        canvas.addEventListener('touchend', stopDrawing);
+       
+        // Hover effects for buttons
+        captureBtn.addEventListener('mouseenter', function() {
+            if (!this.disabled) {
+                this.style.backgroundColor = '#45a049';
+                this.style.transform = 'translateY(-1px)';
+                this.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
+            }
+        });
+       
+        captureBtn.addEventListener('mouseleave', function() {
+            if (!this.disabled) {
+                this.style.backgroundColor = '#4CAF50';
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            }
+        });
+       
+        clearBtn.addEventListener('mouseenter', function() {
+            if (!this.disabled) {
+                this.style.backgroundColor = '#da190b';
+                this.style.transform = 'translateY(-1px)';
+                this.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
+            }
+        });
+       
+        clearBtn.addEventListener('mouseleave', function() {
+            if (!this.disabled) {
+                this.style.backgroundColor = '#f44336';
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            }
+        });
+       
+        function startDrawing(e) {
+            if (!enableCheckbox.checked) return;
+            isDrawing = true;
+            hasSignature = true;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+       
+        function draw(e) {
+            if (!isDrawing || !enableCheckbox.checked) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+           
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#000';
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+       
+        function stopDrawing() {
+            isDrawing = false;
+        }
+       
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' :
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+       
+        // Capture button functionality
+        captureBtn.addEventListener('click', function() {
+            if (!hasSignature) {
+                alert('Please add a signature first!');
+                return;
+            }
+            const today = new Date();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const formattedDate = `${mm}/${dd}/${yyyy}`;
+            dateDisplay.textContent = `Captured on: ${formattedDate}`;
+        });
+       
+        // Clear button functionality
+        clearBtn.addEventListener('click', clearCanvas);
+       
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#fafafa';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            dateDisplay.textContent = '';
+            hasSignature = false;
+        }
+    </script>
+</body>
+</html>
