@@ -80,7 +80,7 @@
     29 CFR Part 29.6 and OAC 5101:11. 
   </div>
 </div>
-
+<div style="font-size:12"><b>Part A: To be completed by apprentice.</b><span style="font-size:7;"> (Note to Sponsor:  Part A should <u>only</u> be filled out by the apprentice.) </span></div>
 <div class="row"> 
   <div class="col-md-6">
     <label for="apprenticeName" class="form-label">Apprentice Name:</label>
@@ -117,7 +117,7 @@
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
   <label class="form-check-label" for="flexRadioDefault2">
     Female
   </label>
@@ -152,7 +152,7 @@
       <label class="form-check-label" for="race3">Black</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="race" id="race4" checked>
+      <input class="form-check-input" type="radio" name="race" id="race4">
       <label class="form-check-label" for="race4">White</label>
     </div>
   </div>
@@ -165,7 +165,7 @@
       <label class="form-check-label" for="ethnic1">of Hispanic or Latino origin</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="ethnic" id="ethnic2" checked>
+      <input class="form-check-input" type="radio" name="ethnic" id="ethnic2">
       <label class="form-check-label" for="ethnic2">not of Hispanic or Latino origin</label>
     </div>
   </div>
@@ -189,7 +189,7 @@
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="veteranStatus" id="nonVet" value="non-veteran" checked>
+          <input class="form-check-input" type="radio" name="veteranStatus" id="nonVet" value="non-veteran">
           <label class="form-check-label" for="nonVet">
             Non-veteran
           </label>
@@ -199,7 +199,142 @@
       <div class="mb-3">
         <label for="cSharp" class="form-label">C#____</label>
       </div>
-    </form>
+
+      <p><strong>6.</strong> Highest education level attained</p>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="education" id="grade8" value="8th">
+      <label class="form-check-label" for="grade8">8th grade or less</label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="education" id="grade9to11" value="9-11">
+      <label class="form-check-label" for="grade9to11">9th through 11th grade</label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="education" id="ged" value="GED">
+      <label class="form-check-label" for="ged">GED</label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="education" id="hs-grad" value="High School">
+      <label class="form-check-label" for="hs-grad">high school graduation</label>
+    </div>
+
+     <p><strong>7.</strong> Was indenture arranged under a school-to-apprenticeship agreement?</p>
+
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="indenture" id="yesIndenture" value="Yes">
+      <label class="form-check-label" for="yesIndenture">Yes</label>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="indenture" id="noIndenture" value="No">
+      <label class="form-check-label" for="noIndenture">No</label>
+    </div>
+      <p><strong>8.</strong>Signature of apprentice</p>
+     <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="enableSignature" style="width: 20px; height: 20px; cursor: pointer;">
+            <label for="enableSignature" style="font-size: 16px; color: #555; cursor: pointer; user-select: none;">Add Apprentice’s Signature </label>
+        </div>
+       
+        <div style="text-align: center; color: #888; font-size: 14px; margin-bottom: 10px;">Sign below when enabled</div>
+        <canvas id="signatureCanvas" width="540" height="200" style="border: 2px solid #ddd; border-radius: 8px; display: block; margin: 0 auto 20px; cursor: crosshair; background-color: #fafafa; touch-action: none; pointer-events: none; opacity: 0.5;"></canvas>
+       
+        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+            <button id="captureBtn" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #761b7e; color: white; opacity: 0.5; cursor: not-allowed;">Capture</button>
+            <button id="clearBtn" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #722679; color: white; opacity: 0.5; cursor: not-allowed;">Clear</button>
+        </div>
+       
+  <div id="dateDisplay" style="text-align: center; font-size: 18px; color: #333; font-weight: 500; min-height: 30px; margin-top: 10px;"></div>
+  <p><strong>9.</strong>Signature of parent or guardian  (if applicable) : N/A </p>
+
+
+  <p><span style="font-family:Arial;font-size:15px; font-weight:bold">Part B: To be completed by sponsor</span><span style="font-size:10px"><u> (Note to Sponsor: </u>:When Parts A & B are complete, <span style="font-family:10px"></span>)</span></p>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label><b>10</b>Occupation </label>
+        <div>
+           a. Occupation title
+        </div>
+        
+       <div>
+        <select class="form-select" id="courses" name="courses">
+          <option selected disabled>Choose a course...</option>
+          <option value="1">Electrical Installation</option>
+          <option value="2">Plumbing and Heating</option>
+          <option value="3">Carpentry and Joinery</option>
+          <option value="4">Bricklaying</option>
+          <option value="5">Painting and Decorating</option>
+          <option value="6">Welding and Fabrication</option>
+          <option value="7">Roofing</option>
+          <option value="8">HVAC Technician</option>
+          <option value="9">Drylining</option>
+          <option value="10">Floor Laying</option>
+          <option value="11">Mechanical Engineering Technician</option>
+          <option value="12">CNC Machining</option>
+          <option value="13">Maintenance Engineering</option>
+          <option value="14">Aerospace Engineering</option>
+          <option value="15">Toolmaking</option>
+          <option value="16">Mechatronics Maintenance</option>
+          <option value="17">Engineering Design and Draughtsperson</option>
+          <option value="18">Sheet Metal Work</option>
+          <option value="19">Composite Technician</option>
+          <option value="20">Automotive Engineering</option>
+          <option value="21">Software Developer</option>
+          <option value="22">Cyber Security Technician</option>
+          <option value="23">Digital Marketing</option>
+          <option value="24">IT Support Technician</option>
+          <option value="25">Data Analyst</option>
+          <option value="26">Network Engineer</option>
+          <option value="27">Business Analyst</option>
+          <option value="28">DevOps Engineer</option>
+          <option value="29">Web Development</option>
+          <option value="30">Cloud Practitioner</option>
+          <option value="31">Business Administration</option>
+          <option value="32">Human Resources Support</option>
+          <option value="33">Customer Service Practitioner</option>
+          <option value="34">Accounting Technician</option>
+          <option value="35">Project Management</option>
+          <option value="36">Supply Chain Practitioner</option>
+          <option value="37">Paralegal</option>
+          <option value="38">Team Leader/Supervisor</option>
+          <option value="39">Recruitment Consultant</option>
+          <option value="40">Insurance Practitioner</option>
+          <option value="41">Dental Nurse</option>
+          <option value="42">Healthcare Support Worker</option>
+          <option value="43">Pharmacy Technician</option>
+          <option value="44">Early Years Educator</option>
+          <option value="45">Adult Care Worker</option>
+          <option value="46">Nursing Associate</option>
+          <option value="47">Optical Assistant</option>
+          <option value="48">Physiotherapy Assistant</option>
+          <option value="49">Occupational Therapy Assistant</option>
+          <option value="50">Laboratory Technician</option>
+        </select>
+       </div>
+      
+
+
+      </div>
+
+    </div>
+
+    <div class="col-md-6" style=" margin-top: 16px;">
+      <label class="form-label" >b.  RAIS/RAPIDS code # </label>
+    <input type="text" class="form-control" id="RAISCode" maxlength="4">
+
+    </div>
+  </div>  
+  
+  <div class="row">
+    <label class="form-label">11. Date apprenticeship begins (indenture date)</label>
+    <input type="date" class="form-control" id="indentureDate" style="width:250px;">
+  </div>
+  
+</form>
   </div>
 
   <!-- Bootstrap JS bundle (includes Popper) -->
@@ -209,6 +344,131 @@
     crossorigin="anonymous"
   ></script>
 
+
   <script src="js/script.js"> </script>
+
+  <script>
+        const canvas = document.getElementById('signatureCanvas');
+        const ctx = canvas.getContext('2d');
+        const enableCheckbox = document.getElementById('enableSignature');
+        const captureBtn = document.getElementById('captureBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const dateDisplay = document.getElementById('dateDisplay');
+       
+        let isDrawing = false;
+        let hasSignature = false;
+       
+        // Set canvas background
+        ctx.fillStyle = '#fafafa';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+       
+        // Enable/disable signature functionality
+        enableCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                canvas.style.pointerEvents = 'auto';
+                canvas.style.opacity = '1';
+                canvas.style.backgroundColor = '#fff';
+                captureBtn.disabled = false;
+                clearBtn.disabled = false;
+                captureBtn.style.opacity = '1';
+                captureBtn.style.cursor = 'pointer';
+                clearBtn.style.opacity = '1';
+                clearBtn.style.cursor = 'pointer';
+            } else {
+                canvas.style.pointerEvents = 'none';
+                canvas.style.opacity = '0.5';
+                canvas.style.backgroundColor = '#f0f0f0';
+                captureBtn.disabled = true;
+                clearBtn.disabled = true;
+                captureBtn.style.opacity = '0.5';
+                captureBtn.style.cursor = 'not-allowed';
+                clearBtn.style.opacity = '0.5';
+                clearBtn.style.cursor = 'not-allowed';
+                clearCanvas();
+            }
+        });
+       
+        // Mouse events
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+       
+        // Touch events
+        canvas.addEventListener('touchstart', handleTouch);
+        canvas.addEventListener('touchmove', handleTouch);
+        canvas.addEventListener('touchend', stopDrawing);
+      
+ 
+       
+        function startDrawing(e) {
+            if (!enableCheckbox.checked) return;
+            isDrawing = true;
+            hasSignature = true;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+       
+        function draw(e) {
+            if (!isDrawing || !enableCheckbox.checked) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+           
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#000';
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+       
+        function stopDrawing() {
+            isDrawing = false;
+        }
+       
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' :
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+       
+        // Capture button functionality
+        captureBtn.addEventListener('click', function() {
+            if (!hasSignature) {
+                alert('Please add a signature first!');
+                return;
+            }
+            const today = new Date();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const formattedDate = `${mm}/${dd}/${yyyy}`;
+            dateDisplay.textContent = `Captured on: ${formattedDate}`;
+        });
+       
+        // Clear button functionality
+        clearBtn.addEventListener('click', clearCanvas);
+       
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#fafafa';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            dateDisplay.textContent = '';
+            hasSignature = false;
+        }
+        function limitDigits(input) {
+          if (input.value.length > 5) {
+          input.value = input.value.slice(0, 5);
+        }
+  }
+    </script>
 </body>
 </html>
