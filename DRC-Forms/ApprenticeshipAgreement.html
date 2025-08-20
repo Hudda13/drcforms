@@ -479,6 +479,34 @@
       per hour.
     </p>
   </div>
+  <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="enableSignature1" style="width: 20px; height: 20px; cursor: pointer;">
+            <label for="enableSignature1" style="font-size: 16px; color: #555; cursor: pointer; user-select: none;">Add witness Signature</label>
+        </div>
+       
+        <div style="text-align: center; color: #888; font-size: 14px; margin-bottom: 10px;">Sign below when enabled</div>
+        <canvas id="signatureCanvas1" width="540" height="200" style="border: 2px solid #ddd; border-radius: 8px; display: block; margin: 0 auto 20px; cursor: crosshair; background-color: #fafafa; touch-action: none; pointer-events: none; opacity: 0.5;"></canvas>
+       
+        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+            <button id="captureBtn1" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #761b7e; color: white; opacity: 0.5; cursor: not-allowed;">Capture</button>
+            <button id="clearBtn1" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #761b7e; color: white; opacity: 0.5; cursor: not-allowed;">Clear</button>
+        </div>
+       
+  <div id="dateDisplay1" style="text-align: center; font-size: 18px; color: #333; font-weight: 500; min-height: 30px; margin-top: 10px;"></div>
+  <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="enableSignature2" style="width: 20px; height: 20px; cursor: pointer;">
+            <label for="enableSignature2" style="font-size: 16px; color: #555; cursor: pointer; user-select: none;">Add witness Signature</label>
+        </div>
+       
+        <div style="text-align: center; color: #888; font-size: 14px; margin-bottom: 10px;">Sign below when enabled</div>
+        <canvas id="signatureCanvas2" width="540" height="200" style="border: 2px solid #ddd; border-radius: 8px; display: block; margin: 0 auto 20px; cursor: crosshair; background-color: #fafafa; touch-action: none; pointer-events: none; opacity: 0.5;"></canvas>
+       
+        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+            <button id="captureBtn2" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #761b7e; color: white; opacity: 0.5; cursor: not-allowed;">Capture</button>
+            <button id="clearBtn2" disabled style="padding: 12px 30px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; background-color: #761b7e; color: white; opacity: 0.5; cursor: not-allowed;">Clear</button>
+        </div>
+       
+  <div id="dateDisplay2" style="text-align: center; font-size: 18px; color: #333; font-weight: 500; min-height: 30px; margin-top: 10px;"></div>
 </form>
   </div>
 
@@ -499,13 +527,43 @@
         const captureBtn = document.getElementById('captureBtn');
         const clearBtn = document.getElementById('clearBtn');
         const dateDisplay = document.getElementById('dateDisplay');
+
+        const canvas1 = document.getElementById('signatureCanvas1');
+        const ctx1 = canvas1.getContext('2d');
+        const enableCheckbox1 = document.getElementById('enableSignature1');
+        const captureBtn1 = document.getElementById('captureBtn1');
+        const clearBtn1 = document.getElementById('clearBtn1');
+        const dateDisplay1 = document.getElementById('dateDisplay1');
+
+        const canvas2 = document.getElementById('signatureCanvas2');
+        const ctx2 = canvas2.getContext('2d');
+        const enableCheckbox2 = document.getElementById('enableSignature2');
+        const captureBtn2 = document.getElementById('captureBtn2');
+        const clearBtn2 = document.getElementById('clearBtn2');
+        const dateDisplay2 = document.getElementById('dateDisplay2');
        
         let isDrawing = false;
         let hasSignature = false;
+
+        let isDrawing1 = false;
+        let hasSignature1 = false;
+
+        let isDrawing2 = false;
+        let hasSignature2 = false;
        
         // Set canvas background
         ctx.fillStyle = '#fafafa';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+         // Set canvas background
+        ctx1.fillStyle = '#fafafa';
+        ctx.fillRect(0, 0, canvas1.width, canvas1.height);
+
+
+         // Set canvas background
+        ctx2.fillStyle = '#fafafa';
+        ctx2.fillRect(0, 0, canvas2.width, canvas2.height);
        
         // Enable/disable signature functionality
         enableCheckbox.addEventListener('change', function() {
@@ -532,6 +590,58 @@
                 clearCanvas();
             }
         });
+
+         enableCheckbox1.addEventListener('change', function() {
+            if (this.checked) {
+                canvas1.style.pointerEvents = 'auto';
+                canvas1.style.opacity = '1';
+                canvas1.style.backgroundColor = '#fff';
+                captureBtn1.disabled = false;
+                clearBtn1.disabled = false;
+                captureBtn1.style.opacity = '1';
+                captureBtn1.style.cursor = 'pointer';
+                clearBtn1.style.opacity = '1';
+                clearBtn1.style.cursor = 'pointer';
+            } else {
+                canvas1.style.pointerEvents = 'none';
+                canvas1.style.opacity = '0.5';
+                canvas1.style.backgroundColor = '#f0f0f0';
+                captureBtn1.disabled = true;
+                clearBtn1.disabled = true;
+                captureBtn1.style.opacity = '0.5';
+                captureBtn1.style.cursor = 'not-allowed';
+                clearBtn1.style.opacity = '0.5';
+                clearBtn1.style.cursor = 'not-allowed';
+                clearCanvas1();
+            }
+        });
+
+
+
+        enableCheckbox2.addEventListener('change', function() {
+            if (this.checked) {
+                canvas2.style.pointerEvents = 'auto';
+                canvas2.style.opacity = '1';
+                canvas2.style.backgroundColor = '#fff';
+                captureBtn2.disabled = false;
+                clearBtn2.disabled = false;
+                captureBtn2.style.opacity = '1';
+                captureBtn2.style.cursor = 'pointer';
+                clearBtn2.style.opacity = '1';
+                clearBtn2.style.cursor = 'pointer';
+            } else {
+                canvas2.style.pointerEvents = 'none';
+                canvas2.style.opacity = '0.5';
+                canvas2.style.backgroundColor = '#f0f0f0';
+                captureBtn2.disabled = true;
+                clearBtn2.disabled = true;
+                captureBtn2.style.opacity = '0.5';
+                captureBtn2.style.cursor = 'not-allowed';
+                clearBtn2.style.opacity = '0.5';
+                clearBtn2.style.cursor = 'not-allowed';
+                clearCanvas2();
+            }
+        });
        
         // Mouse events
         canvas.addEventListener('mousedown', startDrawing);
@@ -543,8 +653,28 @@
         canvas.addEventListener('touchstart', handleTouch);
         canvas.addEventListener('touchmove', handleTouch);
         canvas.addEventListener('touchend', stopDrawing);
-      
- 
+
+        // Mouse events
+        canvas1.addEventListener('mousedown', startDrawing1);
+        canvas1.addEventListener('mousemove', draw1);
+        canvas1.addEventListener('mouseup', stopDrawing1);
+        canvas1.addEventListener('mouseout', stopDrawing1);
+       
+        // Touch events
+        canvas1.addEventListener('touchstart', handleTouch1);
+        canvas1.addEventListener('touchmove', handleTouch1);
+        canvas1.addEventListener('touchend', stopDrawing1);
+       
+         // Mouse events
+        canvas2.addEventListener('mousedown', startDrawing2);
+        canvas2.addEventListener('mousemove', draw2);
+        canvas2.addEventListener('mouseup', stopDrawing2);
+        canvas2.addEventListener('mouseout', stopDrawing2);
+       
+        // Touch events
+        canvas2.addEventListener('touchstart', handleTouch2);
+        canvas2.addEventListener('touchmove', handleTouch2);
+        canvas2.addEventListener('touchend', stopDrawing2);
        
         function startDrawing(e) {
             if (!enableCheckbox.checked) return;
@@ -556,6 +686,29 @@
             ctx.beginPath();
             ctx.moveTo(x, y);
         }
+
+        function startDrawing1(e) {
+            if (!enableCheckbox1.checked) return;
+            isDrawing1 = true;
+            hasSignature1 = true;
+            const rect = canvas1.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            ctx1.beginPath();
+            ctx1.moveTo(x, y);
+        }
+
+         function startDrawing2(e) {
+            if (!enableCheckbox1.checked) return;
+            isDrawing2 = true;
+            hasSignature2 = true;
+            const rect = canvas2.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            ctx2.beginPath();
+            ctx2.moveTo(x, y);
+        }
+       
        
         function draw(e) {
             if (!isDrawing || !enableCheckbox.checked) return;
@@ -569,20 +722,77 @@
             ctx.lineTo(x, y);
             ctx.stroke();
         }
+
+         function draw1(e) {
+            if (!isDrawing1 || !enableCheckbox1.checked) return;
+            const rect = canvas1.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+           
+            ctx1.lineWidth = 2;
+            ctx1.lineCap = 'round';
+            ctx1.strokeStyle = '#000';
+            ctx1.lineTo(x, y);
+            ctx1.stroke();
+        }
+
+        function draw2(e) {
+            if (!isDrawing2 || !enableCheckbox2.checked) return;
+            const rect = canvas2.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+           
+            ctx2.lineWidth = 2;
+            ctx2.lineCap = 'round';
+            ctx2.strokeStyle = '#000';
+            ctx2.lineTo(x, y);
+            ctx2.stroke();
+        }
        
         function stopDrawing() {
             isDrawing = false;
+        }
+
+        function stopDrawing1() {
+            isDrawing1 = false;
+        }
+
+        function stopDrawing2() {
+            isDrawing2 = false;
         }
        
         function handleTouch(e) {
             e.preventDefault();
             const touch = e.touches[0];
-            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' :
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown'  :
                                             e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
                 clientX: touch.clientX,
                 clientY: touch.clientY
             });
             canvas.dispatchEvent(mouseEvent);
+        }
+
+
+        function handleTouch1(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown'  :
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas1.dispatchEvent(mouseEvent);
+        }
+
+        function handleTouch2(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown'  :
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas2.dispatchEvent(mouseEvent);
         }
        
         // Capture button functionality
@@ -598,9 +808,42 @@
             const formattedDate = `${mm}/${dd}/${yyyy}`;
             dateDisplay.textContent = `Captured on: ${formattedDate}`;
         });
+
+
+
+        captureBtn1.addEventListener('click', function() {
+            if (!hasSignature1) {
+                alert('Please add a signature first!');
+                return;
+            }
+            const today = new Date();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const formattedDate = `${mm}/${dd}/${yyyy}`;
+            dateDisplay1.textContent = `Captured on: ${formattedDate}`;
+        });
+
+
+        captureBtn2.addEventListener('click', function() {
+            if (!hasSignature2) {
+                alert('Please add a signature first!');
+                return;
+            }
+            const today = new Date();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const formattedDate = `${mm}/${dd}/${yyyy}`;
+            dateDisplay2.textContent = `Captured on: ${formattedDate}`;
+        });
        
         // Clear button functionality
         clearBtn.addEventListener('click', clearCanvas);
+
+        clearBtn1.addEventListener('click', clearCanvas1);
+
+        clearBtn2.addEventListener('click', clearCanvas2);
        
         function clearCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -609,11 +852,22 @@
             dateDisplay.textContent = '';
             hasSignature = false;
         }
-        function limitDigits(input) {
-          if (input.value.length > 5) {
-          input.value = input.value.slice(0, 5);
+
+        function clearCanvas1() {
+            ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+            ctx1.fillStyle = '#fafafa';
+            ctx1.fillRect(0, 0, canvas1.width, canvas1.height);
+            dateDisplay1.textContent = '';
+            hasSignature1 = false;
         }
-  }
-    </script>
+
+        function clearCanvas2() {
+            ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+            ctx2.fillStyle = '#fafafa';
+            ctx2.fillRect(0, 0, canvas2.width, canvas2.height);
+            dateDisplay2.textContent = '';
+            hasSignature2 = false;
+        }
+  </script>
 </body>
 </html>
