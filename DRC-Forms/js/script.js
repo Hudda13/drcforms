@@ -16,4 +16,13 @@ function printExternalPage() {
   }
 
 
+  function printExternalPageAgreement() {
+    const printWindow = window.open('ApprenticeshipAgreementPrint.html', '_blank');
+    printWindow.onload = function () {
+      printWindow.focus();
+      printWindow.print();
+    };
+  }
+
+
   
